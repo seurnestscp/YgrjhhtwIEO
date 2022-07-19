@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - 'push-action/**'
   pull_request:
 
 concurrency: 
@@ -35,13 +34,11 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-12]
     
     runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v3
-        with:
           path: tests
 
       - name: Copy lockfile
